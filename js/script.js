@@ -9,28 +9,29 @@
 
 // Recupero gli elementi in pagina
 
-const cicleElement = document.getElementById('cicle');
+const listElement = document.getElementById('numbers-list');
 
 
-let result ='';
+for ( let i = 1;  i <= 100; i++ ) {
 
-// Creo un ciclo che stampi in console i numeri da 1 a 100
-for (let i = 1; i <= 100; i++) {
-    
-    // Cambio risultato per i multipli di 3 o di 5
-    if ((i % 3 === 0) && (i % 5 === 0)) {
-        result += '<li>FizzBuzz</li>';
-    } else if (i % 3 === 0) {
-        result += '<li>Fizz</li>';
-    } else if (i % 5 === 0) {
-        result += '<li>Buzz</li>';
-    } else {
-        result += `<li>${i}</li>`;
-    }
+    // contenuto base (numero)
+
+    let content = i;
+
+    // consideriamo eventuali multipli
+
+    if ( i % 15 === 0 ) content = 'fizzbuzz' ;
+    else if ( i % 3 === 0 ) content = 'fizz' ;
+    else if ( i % 5 === 0) content = 'buzz' ;
+
+
+
+    listElement.innerHTML += `<li class="${content}">${content}</li>`;
+
+
 }
 
-console.log(`risultato fine ciclo`, result);
 
-// Stampo in pagina
 
-cicleElement.innerHTML = result;
+
+
